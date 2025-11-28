@@ -31,10 +31,7 @@ class ListItemShimmer extends StatelessWidget {
                     height: 12,
                   ),
                   const SizedBox(height: 8),
-                  const ShimmerBox(
-                    width: 80,
-                    height: 20,
-                  ),
+                  const ShimmerBox(width: 80, height: 20),
                 ],
               ),
             ),
@@ -49,10 +46,7 @@ class ListItemShimmer extends StatelessWidget {
 class HorizontalProductShimmer extends StatelessWidget {
   final int itemCount;
 
-  const HorizontalProductShimmer({
-    super.key,
-    this.itemCount = 3,
-  });
+  const HorizontalProductShimmer({super.key, this.itemCount = 3});
 
   @override
   Widget build(BuildContext context) {
@@ -76,15 +70,9 @@ class HorizontalProductShimmer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   const SizedBox(height: 8),
-                  const ShimmerBox(
-                    width: double.infinity,
-                    height: 14,
-                  ),
+                  const ShimmerBox(width: double.infinity, height: 14),
                   const SizedBox(height: 6),
-                  const ShimmerBox(
-                    width: 80,
-                    height: 16,
-                  ),
+                  const ShimmerBox(width: 80, height: 16),
                 ],
               ),
             ),
@@ -129,10 +117,7 @@ class CartItemShimmer extends StatelessWidget {
                     height: 16,
                   ),
                   const SizedBox(height: 8),
-                  const ShimmerBox(
-                    width: 60,
-                    height: 20,
-                  ),
+                  const ShimmerBox(width: 60, height: 20),
                   const SizedBox(height: 8),
                   Row(
                     children: [
@@ -161,11 +146,7 @@ class TextShimmer extends StatelessWidget {
   final double? width;
   final double height;
 
-  const TextShimmer({
-    super.key,
-    this.width,
-    this.height = 14,
-  });
+  const TextShimmer({super.key, this.width, this.height = 14});
 
   @override
   Widget build(BuildContext context) {

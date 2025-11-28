@@ -37,7 +37,10 @@ class ProductDetailsController extends GetxController {
     }
   }
 
-  Future<void> fetchSimilarProducts(String category, int currentProductId) async {
+  Future<void> fetchSimilarProducts(
+    String category,
+    int currentProductId,
+  ) async {
     try {
       _isSimilarLoading.value = true;
 
@@ -49,7 +52,6 @@ class ProductDetailsController extends GetxController {
           .take(10)
           .toList();
     } catch (e) {
-      print('Error fetching similar products: $e');
       _similarProducts.value = [];
     } finally {
       _isSimilarLoading.value = false;

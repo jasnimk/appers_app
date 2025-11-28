@@ -25,9 +25,8 @@ class CartStorageService {
 
       final jsonString = jsonEncode(cartJson);
       await prefs.setString(_cartKey, jsonString);
-      print('✅ Cart saved: ${cartItems.length} items');
     } catch (e) {
-      print('❌ Error saving cart: $e');
+      // Silent fail - cart saving is non-critical
     }
   }
 
@@ -37,14 +36,9 @@ class CartStorageService {
       final prefs = await SharedPreferences.getInstance();
       final cartString = prefs.getString(_cartKey);
 
-      print('📦 Loading cart from storage...');
-
       if (cartString == null || cartString.isEmpty) {
-        print('📭 No saved cart found');
         return {};
       }
-
-      print('📄 Cart data found: ${cartString.substring(0, cartString.length > 100 ? 100 : cartString.length)}...');
 
       final Map<String, dynamic> cartJson = jsonDecode(cartString);
 
@@ -59,10 +53,8 @@ class CartStorageService {
         );
       });
 
-      print('✅ Cart loaded: ${cartItems.length} items');
       return cartItems;
     } catch (e) {
-      print('❌ Error loading cart: $e');
       return {};
     }
   }
@@ -73,7 +65,7 @@ class CartStorageService {
       final prefs = await SharedPreferences.getInstance();
       await prefs.remove(_cartKey);
     } catch (e) {
-      print('Error clearing cart: $e');
+      // Silent fail - clearing cart is non-critical
     }
   }
 }

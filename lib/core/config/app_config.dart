@@ -2,10 +2,9 @@ class AppConfig {
   // Base URL for DummyJSON API
   static const String baseUrl = 'https://dummyjson.com';
 
-  // Alternative API (if needed)
+  // Alternative API
   // static const String baseUrl = 'https://fakestoreapi.com';
 
-  // API Endpoints
   static const String productsEndpoint = '/products';
   static const String categoriesEndpoint = '/products/categories';
 

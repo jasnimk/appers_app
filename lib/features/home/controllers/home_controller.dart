@@ -24,7 +24,8 @@ class HomeController extends GetxController {
   final _isLoading = false.obs;
   final _categorySections = <CategorySection>[].obs;
   final _allCategories = <Category>[].obs;
-  final _categoryImages = <String, String>{}.obs; // category slug -> random image URL
+  final _categoryImages =
+      <String, String>{}.obs; // category slug -> random image URL
 
   bool get isLoading => _isLoading.value;
   List<CategorySection> get categorySections => _categorySections;
@@ -53,41 +54,47 @@ class HomeController extends GetxController {
 
       // Pick 4-5 random categories for sections
       final random = Random();
-      final numberOfCategories = 4 + random.nextInt(2); // 4 or 5
+      final numberOfCategories = 4 + random.nextInt(2);
       final shuffled = List<Category>.from(allCategories)..shuffle();
       final selectedCategories = shuffled.take(numberOfCategories).toList();
 
-      // Fetch products for each selected category and get random images for all categories
+      // Fetch products for all categories (needed for category images in horizontal scroll)
+      // But only create sections for the selected 4-5 categories
       final sections = <CategorySection>[];
       final images = <String, String>{};
 
       for (final category in allCategories) {
         try {
-          final response = await _repository.getProductsByCategory(category.slug);
+          final response = await _repository.getProductsByCategory(
+            category.slug,
+          );
 
-          // Get a random product image for the category grid
+          // Get a random product image for the category grid (all categories)
           if (response.products.isNotEmpty) {
-            final randomProduct = response.products[random.nextInt(response.products.length)];
+            final randomProduct =
+                response.products[random.nextInt(response.products.length)];
             images[category.slug] = randomProduct.thumbnail;
           }
 
-          // If this is one of the selected categories, add it to sections
+          // Only add to sections if this is one of the selected categories
           if (selectedCategories.any((c) => c.slug == category.slug)) {
-            sections.add(CategorySection(
-              categorySlug: category.slug,
-              categoryName: category.name,
-              products: response.products.take(10).toList(),
-            ));
+            sections.add(
+              CategorySection(
+                categorySlug: category.slug,
+                categoryName: category.name,
+                products: response.products.take(10).toList(),
+              ),
+            );
           }
         } catch (e) {
-          print('Error fetching products for ${category.name}: $e');
+          // Silent fail for individual category errors
         }
       }
 
       _categoryImages.value = images;
       _categorySections.value = sections;
     } catch (e) {
-      print('Error fetching home data: $e');
+      // Silent fail for home data errors
     } finally {
       _isLoading.value = false;
     }

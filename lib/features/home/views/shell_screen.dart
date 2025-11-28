@@ -1,5 +1,6 @@
 import 'package:appers_app/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import '../../../core/config/app_theme.dart';
@@ -43,11 +44,11 @@ class _ShellScreenState extends State<ShellScreen> {
   Widget build(BuildContext context) {
     final controller = Get.put(ShellController());
 
-    final List<Widget> screens = const [
-      HomeScreen(),
+    final List<Widget> screens = [
+      const HomeScreen(),
       ExploreScreen(),
-      CartScreen(),
-      SettingsScreen(),
+      const CartScreen(),
+      const SettingsScreen(),
     ];
 
     return PopScope(
@@ -55,8 +56,8 @@ class _ShellScreenState extends State<ShellScreen> {
       onPopInvokedWithResult: (didPop, result) async {
         if (!didPop) {
           final shouldPop = await _onWillPop(controller);
-          if (shouldPop && context.mounted) {
-            Navigator.of(context).pop();
+          if (shouldPop) {
+            SystemNavigator.pop();
           }
         }
       },

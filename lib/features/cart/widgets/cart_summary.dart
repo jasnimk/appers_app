@@ -104,34 +104,6 @@ class CartSummary extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // // Checkout Button
-              // SizedBox(
-              //   width: double.infinity,
-              //   child: ElevatedButton(
-              //     onPressed: cartController.cartItems.isNotEmpty
-              //         ? () {
-              //             SnackbarUtils.showInfo(
-              //               context,
-              //               'Proceeding to checkout with ${cartController.cartItems.length} items',
-              //             );
-              //           }
-              //         : null,
-              //     style: ElevatedButton.styleFrom(
-              //       padding: const EdgeInsets.symmetric(vertical: 16),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(12),
-              //       ),
-              //     ),
-              //     child: Text(
-              //       'Proceed to Checkout',
-              //       style: AppTextStyles.poppins(
-              //         fontSize: 16,
-              //         fontWeight: FontWeight.w600,
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //   ),
-              // ),
               // Checkout Button
               CustomButton(
                 height: 40,

@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.appers_app"
-    compileSdk = 34  // Use stable SDK 34 instead of 35
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -23,8 +23,8 @@ android {
         applicationId = "com.example.appers_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion  // Minimum SDK for modern Android features
-        targetSdk = 34  // Use stable SDK 34
+        minSdk = flutter.minSdkVersion
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

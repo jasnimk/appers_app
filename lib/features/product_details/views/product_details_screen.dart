@@ -61,10 +61,7 @@ class ProductDetailsScreen extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             // Product Image Header with Hero Animation
-            ProductImageHeader(
-              productId: product.id,
-              images: product.images,
-            ),
+            ProductImageHeader(productId: product.id, images: product.images),
 
             // Product Details Content
             SliverToBoxAdapter(
@@ -128,7 +125,7 @@ class ProductDetailsScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 220,
+                            height: 240,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: controller.similarProducts.length,

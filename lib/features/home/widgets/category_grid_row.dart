@@ -75,7 +75,7 @@ class CategoryGridRow extends StatelessWidget {
               flex: 7,
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(12),
+                  top: Radius.circular(6),
                 ),
                 child: imageUrl != null
                     ? CachedNetworkImage(
@@ -172,7 +172,7 @@ class CategoryGridRow extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(6),
               ),
             ),
           );

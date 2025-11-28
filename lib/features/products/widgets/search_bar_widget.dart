@@ -1,3 +1,4 @@
+import 'package:appers_app/core/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import '../../../core/config/app_text_styles.dart';
 
@@ -28,6 +29,15 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   }
 
   @override
+  void didUpdateWidget(SearchBarWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Update controller text if initialQuery changes
+    if (widget.initialQuery != oldWidget.initialQuery) {
+      _controller.text = widget.initialQuery ?? '';
+    }
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     _focusNode.dispose();
@@ -49,23 +59,18 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-        // color: Colors.grey[100],
         borderRadius: BorderRadius.circular(12),
-        // border: Border.all(
-        //   color: Colors.grey[300]!,
-        //   width: 1,
-        // ),
       ),
       child: TextField(
         controller: _controller,
         focusNode: _focusNode,
         onSubmitted: widget.onSearch,
         textInputAction: TextInputAction.search,
-        style: AppTextStyles.poppins(fontSize: 14),
+        style: AppTextStyles.poppins(fontSize: 12),
         decoration: InputDecoration(
           hintText: 'Search products...',
           hintStyle: AppTextStyles.poppins(
-            fontSize: 14,
+            fontSize: 12,
             color: Colors.grey[500],
           ),
           prefixIcon: Icon(Icons.search, color: Colors.grey[600], size: 22),
@@ -75,6 +80,13 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                   onPressed: _clearSearch,
                 )
               : null,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: AppTheme.getPrimaryColor(context),
+              width: 1.5,
+            ),
+          ),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,

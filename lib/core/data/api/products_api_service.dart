@@ -10,7 +10,7 @@ part 'products_api_service.g.dart';
 abstract class ProductsApiService {
   factory ProductsApiService(Dio dio, {String baseUrl}) = _ProductsApiService;
 
-  // Get all products with pagination
+  // Get all products
   @GET(AppConfig.productsEndpoint)
   Future<ProductResponse> getAllProducts({
     @Query('limit') int? limit,

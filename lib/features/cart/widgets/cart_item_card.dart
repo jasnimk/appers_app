@@ -1,3 +1,4 @@
+import 'package:appers_app/core/widgets/app_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
@@ -31,9 +32,7 @@ class CartItemCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Container(
                   color: Colors.grey[200],
-                  child: const Center(
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
+                  child: Center(child: AppLoader()),
                 ),
                 errorWidget: (context, url, error) => Container(
                   color: Colors.grey[200],

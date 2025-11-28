@@ -1,3 +1,4 @@
+import 'package:appers_app/core/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import '../config/app_text_styles.dart';
 
@@ -18,19 +19,26 @@ class SnackbarUtils {
 
     switch (type) {
       case SnackbarType.success:
-        backgroundColor = const Color(0xFF4CAF50);
+        backgroundColor = AppTheme.getPrimaryColor(context);
+        textColor = Colors.white;
         icon = Icons.check_circle;
         break;
+
       case SnackbarType.error:
-        backgroundColor = const Color(0xFFE53935);
+        backgroundColor = AppTheme.getPrimaryColor(context);
+        textColor = Colors.white;
         icon = Icons.error;
         break;
+
       case SnackbarType.warning:
-        backgroundColor = const Color(0xFFFFA726);
+        backgroundColor = AppTheme.getPrimaryColor(context);
+        textColor = Colors.white;
         icon = Icons.warning;
         break;
+
       case SnackbarType.info:
-        backgroundColor = const Color(0xFF2196F3);
+        backgroundColor = AppTheme.getPrimaryColor(context);
+        textColor = Colors.white;
         icon = Icons.info;
         break;
     }
@@ -39,14 +47,14 @@ class SnackbarUtils {
       SnackBar(
         content: Row(
           children: [
-            Icon(icon, color: textColor, size: 20),
+            Icon(icon, color: AppTheme.getTextPrimaryColor(context), size: 20),
             const SizedBox(width: 12),
             Expanded(
               child: Text(
                 message,
                 style: AppTextStyles.poppins(
                   fontSize: 14,
-                  color: textColor,
+                  color: AppTheme.getTextPrimaryColor(context),
                 ),
               ),
             ),
@@ -55,14 +63,12 @@ class SnackbarUtils {
         backgroundColor: backgroundColor,
         duration: duration,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         margin: const EdgeInsets.all(16),
         action: actionLabel != null
             ? SnackBarAction(
                 label: actionLabel,
-                textColor: textColor,
+                textColor: Colors.white,
                 onPressed: onAction ?? () {},
               )
             : null,

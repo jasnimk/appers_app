@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../features/home/views/shell_screen.dart';
 import '../features/product_details/views/product_details_screen.dart';
@@ -15,6 +16,9 @@ class AppPages {
         final productId = Get.arguments as int;
         return ProductDetailsScreen(productId: productId);
       },
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
     ),
   ];
 }

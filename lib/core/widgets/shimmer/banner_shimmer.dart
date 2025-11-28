@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'shimmer_base.dart';
 
-/// Shimmer loading effect for banner carousel
 class BannerShimmer extends StatelessWidget {
   const BannerShimmer({super.key});
 
@@ -47,10 +46,7 @@ class BannerShimmer extends StatelessWidget {
 class ProductImageShimmer extends StatelessWidget {
   final double height;
 
-  const ProductImageShimmer({
-    super.key,
-    this.height = 300,
-  });
+  const ProductImageShimmer({super.key, this.height = 300});
 
   @override
   Widget build(BuildContext context) {

@@ -1,67 +1,9 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import '../../../core/config/app_text_styles.dart';
-// import '../../../core/utils/snackbar_utils.dart';
-// import '../../cart/controllers/cart_controller.dart';
-// import '../../../core/models/product_model.dart';
-
-// class AddToCartButton extends StatelessWidget {
-//   final Product product;
-
-//   const AddToCartButton({super.key, required this.product});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final cartController = Get.find<CartController>();
-
-//     return Container(
-//       padding: const EdgeInsets.all(16),
-//       decoration: BoxDecoration(
-//         color: Theme.of(context).scaffoldBackgroundColor,
-//         boxShadow: [
-//           BoxShadow(
-//             color: Colors.black.withOpacity(0.05),
-//             blurRadius: 10,
-//             offset: const Offset(0, -5),
-//           ),
-//         ],
-//       ),
-//       child: SafeArea(
-//         child: ElevatedButton(
-//           onPressed: product.stock > 0
-//               ? () {
-//                   cartController.addToCart(product);
-//                   SnackbarUtils.showSuccess(
-//                     context,
-//                     '${product.title} added to cart',
-//                   );
-//                 }
-//               : null,
-//           style: ElevatedButton.styleFrom(
-//             padding: const EdgeInsets.symmetric(vertical: 16),
-//             shape: RoundedRectangleBorder(
-//               borderRadius: BorderRadius.circular(12),
-//             ),
-//           ),
-//           child: Text(
-//             product.stock > 0 ? 'Add to Cart' : 'Out of Stock',
-//             style: AppTextStyles.poppins(
-//               fontSize: 16,
-//               fontWeight: FontWeight.w600,
-//               color: Colors.white,
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:appers_app/core/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/config/app_text_styles.dart';
 import '../../../core/utils/snackbar_utils.dart';
-import '../../../core/widgets/custom_button.dart'; // <-- IMPORTANT
+import '../../../core/widgets/custom_button.dart';
 import '../../cart/controllers/cart_controller.dart';
 import '../../home/controllers/shell_controller.dart';
 import '../../../core/models/product_model.dart';
@@ -99,11 +41,13 @@ class AddToCartButton extends StatelessWidget {
                     // Quantity indicator
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
+                        horizontal: 12,
                         vertical: 12,
                       ),
                       decoration: BoxDecoration(
-                        color: AppTheme.getPrimaryColor(context).withOpacity(0.1),
+                        color: AppTheme.getPrimaryColor(
+                          context,
+                        ).withOpacity(0.1),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: AppTheme.getPrimaryColor(context),
@@ -140,7 +84,7 @@ class AddToCartButton extends StatelessWidget {
                           // Navigate to shell and switch to cart tab (index 2)
                           final shellController = Get.find<ShellController>();
                           shellController.changeTab(2);
-                          Get.offAllNamed('/'); // Navigate to shell and clear stack
+                          Get.offAllNamed('/');
                         },
                         backgroundColor: AppTheme.getPrimaryColor(context),
                         fontSize: 16,

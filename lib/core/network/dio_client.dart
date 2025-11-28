@@ -67,7 +67,6 @@ class DioClient {
       case DioExceptionType.badCertificate:
         return 'Certificate error';
       case DioExceptionType.unknown:
-      default:
         return 'Something went wrong. Please try again.';
     }
   }

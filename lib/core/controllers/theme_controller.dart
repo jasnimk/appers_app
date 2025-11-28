@@ -4,8 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeController extends GetxController {
   static const String _themeKey = 'theme_mode';
-
-  // Use ThemeMode.system to follow device theme by default
   final _themeMode = ThemeMode.system.obs;
 
   ThemeMode get themeMode => _themeMode.value;
@@ -23,11 +21,11 @@ class ThemeController extends GetxController {
   Future<void> _loadThemePreference() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final themeIndex = prefs.getInt(_themeKey) ?? 0; // 0 = system, 1 = light, 2 = dark
+      final themeIndex =
+          prefs.getInt(_themeKey) ?? 0; // 0 = system, 1 = light, 2 = dark
       _themeMode.value = ThemeMode.values[themeIndex];
       Get.changeThemeMode(_themeMode.value);
     } catch (e) {
-      print('Error loading theme preference: $e');
       _themeMode.value = ThemeMode.system;
     }
   }
@@ -37,7 +35,7 @@ class ThemeController extends GetxController {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setInt(_themeKey, _themeMode.value.index);
     } catch (e) {
-      print('Error saving theme preference: $e');
+      // Silent fail - theme preference saving is non-critical
     }
   }
 

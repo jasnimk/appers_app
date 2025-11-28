@@ -30,7 +30,6 @@ class CartController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print('🛒 CartController initialized');
   }
 
   @override
@@ -41,12 +40,10 @@ class CartController extends GetxController {
 
   /// Load cart from local storage on initialization
   Future<void> _loadCartFromStorage() async {
-    print('🔄 Starting cart load...');
     final savedCart = await _storageService.loadCart();
     if (savedCart.isNotEmpty) {
       _cartItems.value = savedCart;
       _cartItems.refresh();
-      print('🎉 Cart items restored: ${savedCart.length} items');
     }
   }
 
