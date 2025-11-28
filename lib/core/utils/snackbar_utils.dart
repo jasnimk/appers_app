@@ -53,7 +53,8 @@ class SnackbarUtils {
               child: Text(
                 message,
                 style: AppTextStyles.poppins(
-                  fontSize: 14,
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
                   color: AppTheme.getTextPrimaryColor(context),
                 ),
               ),

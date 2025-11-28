@@ -194,7 +194,7 @@ Dio + Retrofit + Pretty Logger
 ### Steps
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/jasnimk/appers_app.git
    cd appers_app
    ```
 
