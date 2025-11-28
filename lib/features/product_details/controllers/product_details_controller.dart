@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../../products/models/product_model.dart';
-import '../../products/repository/products_repository.dart';
+import '../../../core/models/product_model.dart';
+import '../../../core/data/repositories/products_repository.dart';
 
 class ProductDetailsController extends GetxController {
   final ProductsRepository _repository = ProductsRepository();

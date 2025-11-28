@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../products/models/product_model.dart';
+import '../../../core/models/product_model.dart';
 import '../controllers/cart_controller.dart';
 
 /// Service for persisting cart data to local storage

@@ -1,7 +1,7 @@
-import '../../../core/network/dio_client.dart';
-import '../data/products_api_service.dart';
-import '../models/product_model.dart';
-import '../models/category_model.dart';
+import '../../network/dio_client.dart';
+import '../api/products_api_service.dart';
+import '../../models/product_model.dart';
+import '../../models/category_model.dart';
 
 class ProductsRepository {
   late final ProductsApiService _apiService;

@@ -6,9 +6,9 @@ import '../../../core/config/app_theme.dart';
 import '../../../core/utils/snackbar_utils.dart';
 import '../../cart/views/cart_screen.dart';
 import '../../products/views/explore_screen.dart';
+import '../../settings/views/settings_screen.dart';
 import '../controllers/shell_controller.dart';
 import 'home_screen.dart';
-import 'profile_screen.dart';
 
 class ShellScreen extends StatefulWidget {
   const ShellScreen({super.key});
@@ -47,7 +47,7 @@ class _ShellScreenState extends State<ShellScreen> {
       HomeScreen(),
       ExploreScreen(),
       CartScreen(),
-      ProfileScreen(),
+      SettingsScreen(),
     ];
 
     return PopScope(

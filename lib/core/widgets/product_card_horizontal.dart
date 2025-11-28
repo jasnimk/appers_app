@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../config/app_text_styles.dart';
 import '../config/app_theme.dart';
 import '../../routes/app_routes.dart';
-import '../../features/products/models/product_model.dart';
+import '../models/product_model.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
   final Product product;

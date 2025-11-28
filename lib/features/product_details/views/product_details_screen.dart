@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../core/widgets/shimmer/shimmers.dart';
 import '../../../core/widgets/product_card_horizontal.dart';
 import '../../../core/config/app_text_styles.dart';
+import '../../../core/utils/empty_state.dart';
 import '../controllers/product_details_controller.dart';
 import '../widgets/add_to_cart_button.dart';
 import '../widgets/product_description_section.dart';
@@ -37,25 +38,24 @@ class ProductDetailsScreen extends StatelessWidget {
 
         if (controller.hasError) {
           return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error_outline, size: 60, color: Colors.grey),
-                const SizedBox(height: 16),
-                const Text('Failed to load product details'),
-                const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () => controller.fetchProductDetails(productId),
-                  child: const Text('Retry'),
-                ),
-              ],
+            child: EmptyState(
+              message: 'Failed to load product',
+              subtitle: 'Something went wrong while loading product details',
+              size: 140,
+              onRetry: () => controller.fetchProductDetails(productId),
             ),
           );
         }
 
         final product = controller.product;
         if (product == null) {
-          return const Center(child: Text('Product not found'));
+          return const Center(
+            child: EmptyState(
+              message: 'Product not found',
+              subtitle: 'This product may have been removed or is unavailable',
+              size: 140,
+            ),
+          );
         }
 
         return CustomScrollView(
@@ -63,7 +63,7 @@ class ProductDetailsScreen extends StatelessWidget {
             // Product Image Header with Hero Animation
             ProductImageHeader(
               productId: product.id,
-              imageUrl: product.thumbnail,
+              images: product.images,
             ),
 
             // Product Details Content

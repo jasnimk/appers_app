@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../core/config/app_text_styles.dart';
 import '../../../core/config/app_theme.dart';
-import '../../products/models/category_model.dart';
+import '../../../core/models/category_model.dart';
 
 class CategoryGridRow extends StatelessWidget {
   final List<Category> categories;

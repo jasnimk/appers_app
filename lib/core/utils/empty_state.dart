@@ -7,8 +7,11 @@ class EmptyState extends StatelessWidget {
   final String? lottiePath;
   final String? imagePath;
   final String message;
+  final String? subtitle;
   final double size;
-  final Color? textColor; // nullable, no default
+  final Color? textColor;
+  final VoidCallback? onRetry;
+  final String? retryButtonText;
 
   const EmptyState({
     super.key,
@@ -16,7 +19,10 @@ class EmptyState extends StatelessWidget {
     this.imagePath,
     this.size = 180,
     this.message = "No results found",
-    this.textColor, // remove default value
+    this.subtitle,
+    this.textColor,
+    this.onRetry,
+    this.retryButtonText = 'Retry',
   });
 
   @override
@@ -52,12 +58,50 @@ class EmptyState extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         visual,
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         Text(
           message,
           textAlign: TextAlign.center,
-          style: AppTextStyles.poppins(fontSize: 14, color: resolvedTextColor),
+          style: AppTextStyles.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: resolvedTextColor,
+          ),
         ),
+        if (subtitle != null) ...[
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Text(
+              subtitle!,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.poppins(
+                fontSize: 13,
+                color: Colors.grey[600],
+              ),
+            ),
+          ),
+        ],
+        if (onRetry != null) ...[
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: onRetry,
+            icon: const Icon(Icons.refresh_rounded, size: 20),
+            label: Text(retryButtonText!),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.getPrimaryColor(context),
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 32,
+                vertical: 14,
+              ),
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+          ),
+        ],
       ],
     );
   }

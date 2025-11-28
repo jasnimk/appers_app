@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:get/get.dart';
-import '../../products/models/product_model.dart';
-import '../../products/models/category_model.dart';
-import '../../products/repository/products_repository.dart';
+import '../../../core/models/product_model.dart';
+import '../../../core/models/category_model.dart';
+import '../../../core/data/repositories/products_repository.dart';
 import '../../products/controllers/products_controller.dart';
 import 'shell_controller.dart';
 

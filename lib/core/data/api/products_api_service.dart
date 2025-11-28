@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import '../../../core/config/app_config.dart';
-import '../models/product_model.dart';
-import '../models/category_model.dart';
+import '../../config/app_config.dart';
+import '../../models/product_model.dart';
+import '../../models/category_model.dart';
 
 part 'products_api_service.g.dart';
 

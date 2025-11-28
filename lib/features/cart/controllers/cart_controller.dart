@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../products/models/product_model.dart';
+import '../../../core/models/product_model.dart';
 import '../services/cart_storage_service.dart';
 
 class CartItem {

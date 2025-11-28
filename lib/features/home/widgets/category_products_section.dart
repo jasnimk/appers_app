@@ -4,7 +4,7 @@ import '../../../core/config/app_text_styles.dart';
 import '../../../core/config/app_theme.dart';
 import '../../../core/widgets/product_card_horizontal.dart';
 import '../../../core/widgets/shimmer/shimmers.dart';
-import '../../products/models/product_model.dart';
+import '../../../core/models/product_model.dart';
 
 class CategoryProductsSection extends StatelessWidget {
   final String title;

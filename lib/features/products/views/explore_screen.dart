@@ -26,21 +26,11 @@ class ExploreScreen extends StatelessWidget {
 
         if (controller.hasError) {
           return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error_outline, size: 60, color: Colors.grey),
-                const SizedBox(height: 16),
-                const Text(
-                  'Something went wrong',
-                  style: TextStyle(fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: controller.refresh,
-                  child: const Text('Retry'),
-                ),
-              ],
+            child: EmptyState(
+              message: 'Unable to load products',
+              subtitle: 'Check your connection and try again',
+              size: 140,
+              onRetry: controller.refresh,
             ),
           );
         }

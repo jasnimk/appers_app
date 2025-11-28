@@ -3,7 +3,7 @@
 // import '../../../core/config/app_text_styles.dart';
 // import '../../../core/utils/snackbar_utils.dart';
 // import '../../cart/controllers/cart_controller.dart';
-// import '../../products/models/product_model.dart';
+// import '../../../core/models/product_model.dart';
 
 // class AddToCartButton extends StatelessWidget {
 //   final Product product;
@@ -64,7 +64,7 @@ import '../../../core/utils/snackbar_utils.dart';
 import '../../../core/widgets/custom_button.dart'; // <-- IMPORTANT
 import '../../cart/controllers/cart_controller.dart';
 import '../../home/controllers/shell_controller.dart';
-import '../../products/models/product_model.dart';
+import '../../../core/models/product_model.dart';
 
 class AddToCartButton extends StatelessWidget {
   final Product product;
