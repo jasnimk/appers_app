@@ -322,6 +322,4 @@ Dio + Retrofit + Pretty Logger
 
 >https://drive.google.com/drive/folders/1nkYEUL8L60baKSWbO1vd2fxVgp5tCEXg
 
----
 
-**Built with ❤️ using Flutter**
